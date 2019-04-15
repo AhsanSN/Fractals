@@ -74,7 +74,6 @@ def q1_p1():
 
 def q1_p2():
     moveToPos(0, -250, 90)
-    rule = "F[+F]F[-F][F]"
     fwd = 6
     theta = 20
     n = 5
@@ -84,52 +83,40 @@ def q1_p2():
 
 def q1_p3():
     moveToPos(0, -250, 90)
-    rule = "FF-[-F+F+F]+[+F-F-F]"
     fwd = 6
     theta = 22.5
     n = 4
-    for i in range (0, n):
-        rule = rule.replace("F", "FF-[-F+F+F]+[+F-F-F]")
-    implement_FRule(rule, fwd, theta)
+    rules = processRule(["F", "F>FF-[-F+F+F]+[+F-F-F]"])
+    equation = createEquationFromRules(rules, n)
+    implement_FRule(equation, fwd, theta)
 
 def q1_p4():
-    moveToPos(0, -250, 90)
-    rule = "F[+X]F[-X]+X"
     fwd = 0.3
     theta = 20
     n = 7
-    for i in range (0, n):
-        rule = rule.replace("X", "F[+X]F[-X]+X")
-        rule = rule.replace("F", "FF")
-    implement_FRule(rule, fwd, theta)
+    rules = processRule(["F", "F>F[+X]F[-X]+X", "F>FF"])
+    equation = createEquationFromRules(rules, n)
+    implement_FRule(equation, fwd, theta)
     
 def q1_p5():
     moveToPos(0, -250, 90)
-    rule = "F[+X][-X]FX"
     fwd = 0.4
     theta = 25.7
     n = 7
-    for i in range (0, n):
-        rule = rule.replace("X", "F[+X][-X]FX")
-        rule = rule.replace("F", "FF")
-    implement_FRule(rule, fwd, theta)
+    rules = processRule(["F", "F>F[+X][-X]FX", "F>FF"])
+    equation = createEquationFromRules(rules, n)
+    implement_FRule(equation, fwd, theta)
 
 def q1_p6():
     moveToPos(0, -250, 90)
-    rule = "F-[[X]+X]+F[+FX]-X"
     fwd = 1
     theta = 22.5
     n = 5
-    for i in range (0, n):
-        rule = rule.replace("X", "F-[[X]+X]+F[+FX]-X")
-        rule = rule.replace("F", "FF")
-    implement_FRule(rule, fwd, theta)
+    rules = processRule(["F", "F>F-[[X]+X]+F[+FX]-X", "F>FF"])
+    equation = createEquationFromRules(rules, n)
+    implement_FRule(equation, fwd, theta)
     
-q1_p1()
-
-        
-#a = processRule(["F", "F>F[+F]F[-F]F"])
-#createEquationFromRules(a, 2)
+q1_p2()
 
 
 
