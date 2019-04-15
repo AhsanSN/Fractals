@@ -1,15 +1,6 @@
 from turtle import Turtle
 turtle = Turtle()
 turtle.speed(0)
-'''
-turtle.position
-turtle.forward(25)
-#turtle.position()
-turtle.forward(-75)
-turtle.right(90)
-#turtle.position()
-'''
-
 
 def moveToPos(x, y, angle):
     turtle.up()
@@ -46,7 +37,6 @@ def createEquationFromRules(rules, n):
     return rule
 
 def implement_FRule(rule, fwd, theta):
-    
     backlog = []
     for i in rule:
         #print(i)
@@ -71,7 +61,6 @@ def q1_p1():
     equation = createEquationFromRules(rules, n)
     implement_FRule(equation, fwd, theta)
 
-
 def q1_p2():
     moveToPos(0, -250, 90)
     fwd = 6
@@ -91,10 +80,11 @@ def q1_p3():
     implement_FRule(equation, fwd, theta)
 
 def q1_p4():
+    moveToPos(0, -250, 90)
     fwd = 0.3
     theta = 20
     n = 7
-    rules = processRule(["F", "F>F[+X]F[-X]+X", "F>FF"])
+    rules = processRule(["X", "X>F[+X]F[-X]+X", "F>FF"])
     equation = createEquationFromRules(rules, n)
     implement_FRule(equation, fwd, theta)
     
@@ -103,7 +93,7 @@ def q1_p5():
     fwd = 0.4
     theta = 25.7
     n = 7
-    rules = processRule(["F", "F>F[+X][-X]FX", "F>FF"])
+    rules = processRule(["X", "X>F[+X][-X]FX", "F>FF"])
     equation = createEquationFromRules(rules, n)
     implement_FRule(equation, fwd, theta)
 
@@ -112,11 +102,11 @@ def q1_p6():
     fwd = 1
     theta = 22.5
     n = 5
-    rules = processRule(["F", "F>F-[[X]+X]+F[+FX]-X", "F>FF"])
+    rules = processRule(["X", "X>F-[[X]+X]+F[+FX]-X", "F>FF"])
     equation = createEquationFromRules(rules, n)
     implement_FRule(equation, fwd, theta)
     
-q1_p2()
+q1_p6()
 
 
 
